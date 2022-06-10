@@ -104,7 +104,7 @@ fi
 
 # kitty build
 if [[ ! -d "kitty" ]]; then
-  git clone https://github.com/kovidgoyal/kitty.github
+  git clone https://github.com/kovidgoyal/kitty.git
   cd kitty
   python3 setup.py linux-package
   cd linux-package

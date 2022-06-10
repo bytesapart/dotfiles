@@ -19,6 +19,7 @@
 # 	upgrades packages and also downgrades packages (if you happen to have a newer version than in the repository). 
 # 	Normally this should not be used. Only if you're trying to fix a specific issue due to a new package being removed from the repository.
 # pacman -Qdtq : Remove all unwanted orphaned packages
+# PLEASE NOTE: USE archinstall's POST INSTALLATION TO `pacman -S networkmanager` and `systemctl start NetworkManager.service`
  sudo pacman -Syyu --noconfirm
 
 

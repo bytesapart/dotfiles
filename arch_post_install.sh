@@ -181,7 +181,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plug
 cp ~/Project/dotfiles/zsh/.zshrc ~/.zshrc
 
 # Copy kitty configurations
-mkdir ~/.conf/kitty
+mkdir ~/.config/kitty
 cp ~/Project/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
 cp ~/Project/dotfiles/kitty/current-theme.conf ~/.config/kitty/curent-theme.conf
 chmod 600 ~/.config/kitty/kitty.conf

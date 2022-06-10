@@ -29,15 +29,31 @@ sudo pacman -S cmake libtool make perl pkg-config ninja diffutils --noconfirm # 
 sudo pacman -S dbus fontconfig freetype2 hicolor-icon-theme lcms2 libglvnd librsync libx11 libxu libxkbcommon-x11 wayland imagemahick libcanberra python-pygments libxcursor libxinerama libxrandr wayland-protocols --noconfirm  # Kitty Dependencies
 sudo pacman -S python-sphinx python-sphinx-furo python-sphinxext-opengraph python-sphinx-copybutton python-sphinx-inline-tabs --noconfirm  # Kitty Manual Dependencies
 # Audio and misc.
-sudo pacman -S zip unzip zsh neofetch brightnessctl zathura libreoffice alsa-utils pipewire-alsa pipewire-pulse pipewire-jack qjackctl pavucontrol qbittorrent vlc libinput --noconfirm
+sudo pacman -S zip unzip zsh neofetch brightnessctl zathura libreoffice alsa-utils pipewire-alsa pipewire-pulse pipewire-jack qjackctl pavucontrol qbittorrent vlc libinput pdflatex zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps xclip gtk2 gimp --noconfirm
 # KVM/Virtual Manager
 sudo pacman -S virt-manager qemu vde2 dnsmasq bridge-utils openbsd-netcat --noconfirm
 sudo pacman -S ebtables iptables libguestfs dmidecode --noconfirm
+sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
+sudo pacman -S zsh --noconfirm
 
 
 # Git configurations
 git config --global user.name "Osama Iqbal"
 git config --global user.email iqbal.osama@icloud.com
+
+# Get the SSH keys
+
+cd ~
+mkdir .ssh
+chmod 700 .ssh
+echo "Enter the ssh zip URL"
+read ssh_zip_url
+wget $ssh_zip_url
+unzip ssh.zip
+sudo chmod 600 id_rsa
+sudo chmod 644 id_rsa.pub
+
+
 
 # Create the Project directory and pull in things
 cd ~
@@ -84,39 +100,110 @@ fi
 
 
 # kitty build
+if [[ ! -d "kitty" ]]; then
+  git clone https://github.com/kovidgoyal/kitty.github
+  cd kitty
+  python3 setup.py linux-package
+  cd linux-package
+  sudo cp -R bin/ /usr/
+  sudo cp -R lib/ /usr/
+  sudo cp -R share/ /usr/
+  cd ~/Project
+else
+  echo "kitty already exists. Skipping build..."
+fi
+
+if [[ ! -d "tmux" ]]; then
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
+  ./configure && make
+  cd ~/Project
+else
+  echo "tmux already exists. Skipping build..."
+fi
 
 
-# ssh stuff
-# cd ~
-# mkdir .ssh
-# chmod 700 .ssh
-# cp ../Downloads/id_rsa.pub
-# cp ../Downloads/id_rsa
-# chmod 600 id_rsa
-# chmod 644 id_rsa.pub
+# Install nerd-fonts-fira-code
+i3-msg reload
+sudo pikaur -S nerd-fonts-fira-code --noconfirm
 
+# Install NvChad (TODO: Replace this with your own in the future!)
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
+cd ~/.config/nvim
+mkdir lua/custom
+cp examples/init.lua lua/custom/init.lua
+cp examples/chadrc.lua lua/custom/chadrc.lua
 
+# Setup Keychron K2 stuff
+echo "options hid_apple fnmode=0" | sudo tee -a /etc/modprobe.d/hid_apple.conf
+sudo mkinitcpio -p linux
 
-# cd linux-package
-# sudo cp -R bin/ /usr/
-# sudo cp -R lib/ /usr/
-# sudo cp -R share/ /usr/
+# Setup KVM stuff
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+sudo usermod -a -G libvirt $(whoami)
+sudo systemctl restart libvirtd.service
 
-# i3-msg reload
-# pikaur -S nerd-fonts-fira-code --noconfirm
+cd ~
+cd Project
+if [[ ! -d "dotfiles" ]]; then
+  git clone git@github.com:bytesapart/dotfiles.git  
+  cd ~/Project
+else
+  echo "dotfiles already exists. Skip pulling dotfiles"
+fi
 
-# git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
-# cd ~/.config/nvim
-# mkdir lua/custom
-# cp examples/init.lua lua/custom/init.lua
-# cp examples/chadrc.lua lua/custom/chadrc.lua
+# Backlight rules, important for setting up of backlight!
+sudo cp ~/Project/dotfiles/etc/udev/rules.d/backlight.rules /etc/udev/rules.d/backlight.rules
+sudo chmod 644 /etc/udev/rules.d/backlight.rules
 
-# sudo nvim /etc/udev/rules.d/backlight.rules # Remember to copy file in configs!
+# Touchpad configurations
+sudo cp ~/Project/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
+sudo chmod 644 /etc/X11/xord.conf.d/30-touchpad.conf
+cd ~
+if [[ ! -d ".config" ]]; then
+  mkdir .config
+  chmod 755 .config
+else
+  echo ".config directory already exits"
+fi
+cp ~/Project/dotfiles/i3/config .config/i3/config
+chmod 644 .config/i3/config
 
-# echo "options hid_apple fnmode=0" | sudo tee -a /etc/modprobe.d/hid_apple.conf
-# sudo mkinitcpio -p linux
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
+cp ~/Project/dotfiles/zsh/.zshrc ~/.zshrc
 
-# sudo systemctl enable libvirtd.service
-# sudo systemctl start libvirtd.service
-# sudo usermod -a -G libvirt $(whoami)
-# sudo systemctl restart libvirtd.service
+# Copy kitty configurations
+mkdir ~/.conf/kitty
+cp ~/Project/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+cp ~/Project/dotfiles/kitty/current-theme.conf ~/.config/kitty/curent-theme.conf
+chmod 600 ~/.config/kitty/kitty.conf
+chmod 600 ~/.config/kitty/current-theme.conf
+
+# For Milton, checkout Milton, download SDL-2.0.22, change nvim src/system_includes to have SDL2/SDL.h and the like, similartly with third_party/imgui/imgui_impl_sdl/cpp. Change 2.0.8 to 2.0.22 in CMakeLists.txt in the base directory, then build it.
+
+cd ~/Project
+if [[ ! -d "milton" ]]; then
+  git clone https://github.com/serge-rgb/milton.git
+  cd milton
+  cd third_party
+  wget https://www.libsdl.org/release/SDL2-2.0.22.tar.gz
+  tar -zxvf SDL2-2.0.22.tar.gz
+  sed -i 's/SDL.h/SDL2\/SDL.h/g' imgui/imgui_impl_sdl.cpp
+  sed -i 's/SDL_syswm.h/SDL2\/SDL_syswm.h/g' imgui/imgui_impl_sdl.cpp
+  cd ..
+  sed -i 's/SDL.h/SDL2\/SDL.h/g' src/system_includes.h
+  sed -i 's/SDL_syswm.h/SDL2\/SDL_syswm.h/g' src/system_includes.h
+
+  sed -i 's/SDL2-2.0.8/SDL-2.0.22/g' CMakeLists.txt
+  sed -i 's/SDL2-2.0.8/SDL-2.0.22/g' build-lin.sh
+
+  ./build-lin.sh
+else
+  echo "milton already exists. Skipping build..."
+fi
+
+chsh -s `which zsh`

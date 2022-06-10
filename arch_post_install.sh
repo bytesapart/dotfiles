@@ -33,7 +33,7 @@ sudo pacman -S python-sphinx python-sphinx-furo python-sphinxext-opengraph pytho
 sudo pacman -S zip unzip zsh neofetch brightnessctl zathura alsa-utils pipewire-alsa pipewire-pulse pipewire-jack qjackctl pavucontrol qbittorrent vlc libinput zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps xclip gtk2 gimp --noconfirm
 # KVM/Virtual Manager
 sudo pacman -S virt-manager qemu vde2 dnsmasq bridge-utils openbsd-netcat --noconfirm
-sudo pacman -S ebtables iptables libguestfs dmidecode --noconfirm
+sudo pacman -S ebtables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
 sudo pacman -S zsh arandr --noconfirm
 sudo pacman -S libreoffice --noconfirm
@@ -165,7 +165,7 @@ sudo chmod 644 /etc/udev/rules.d/backlight.rules
 
 # Touchpad configurations
 sudo cp ~/Project/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
-sudo chmod 644 /etc/X11/xord.conf.d/30-touchpad.conf
+sudo chmod 644 /etc/X11/xorg.conf.d/30-touchpad.conf
 cd ~
 if [[ ! -d ".config" ]]; then
   mkdir .config
@@ -205,8 +205,8 @@ if [[ ! -d "milton" ]]; then
   sed -i 's/SDL.h/SDL2\/SDL.h/g' src/system_includes.h
   sed -i 's/SDL_syswm.h/SDL2\/SDL_syswm.h/g' src/system_includes.h
 
-  sed -i 's/SDL2-2.0.8/SDL-2.0.22/g' CMakeLists.txt
-  sed -i 's/SDL2-2.0.8/SDL-2.0.22/g' build-lin.sh
+  sed -i 's/SDL2-2.0.8/SDL2-2.0.22/g' CMakeLists.txt
+  sed -i 's/SDL2-2.0.8/SDL2-2.0.22/g' build-lin.sh
 
   ./build-lin.sh
 else

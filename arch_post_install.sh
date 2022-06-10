@@ -46,9 +46,11 @@ git config --global user.email iqbal.osama@icloud.com
 cd ~
 mkdir .ssh
 chmod 700 .ssh
-echo "Enter the ssh zip URL"
-read ssh_zip_url
-wget $ssh_zip_url
+cd .ssh
+cp ~/Downloads/ssh.zip .
+# echo "Enter the ssh zip URL"
+# read ssh_zip_url
+# wget $ssh_zip_url
 unzip ssh.zip
 sudo chmod 600 id_rsa
 sudo chmod 644 id_rsa.pub

@@ -213,4 +213,13 @@ else
   echo "milton already exists. Skipping build..."
 fi
 
+cd ~/Project
+
+if [[ ! -d "resume" ]]; then
+  git clone git@github.com:bytesapart/resume.git
+  cd ~
+else
+  echo "resume exits. Skipping clone..."
+fi
+
 chsh -s `which zsh`

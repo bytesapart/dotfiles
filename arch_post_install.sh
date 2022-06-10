@@ -34,7 +34,7 @@ sudo pacman -S zip unzip zsh neofetch brightnessctl zathura libreoffice alsa-uti
 sudo pacman -S virt-manager qemu vde2 dnsmasq bridge-utils openbsd-netcat --noconfirm
 sudo pacman -S ebtables iptables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
-sudo pacman -S zsh --noconfirm
+sudo pacman -S zsh arandr --noconfirm
 
 
 # Git configurations

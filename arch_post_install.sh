@@ -27,7 +27,7 @@
 sudo pacman -S git llvm clang python python-pip firefox --noconfirm
 sudo pacman -S base-devel --noconfirm
 sudo pacman -S cmake libtool make perl pkg-config ninja diffutils --noconfirm # Neovim dependencies
-sudo pacman -S dbus fontconfig freetype2 hicolor-icon-theme lcms2 libglvnd librsync libx11 libxu libxkbcommon-x11 wayland imagemahick libcanberra python-pygments libxcursor libxinerama libxrandr wayland-protocols --noconfirm  # Kitty Dependencies
+sudo pacman -S dbus fontconfig freetype2 hicolor-icon-theme lcms2 libglvnd librsync libx11 libxi libxkbcommon-x11 wayland imagemagick libcanberra python-pygments libxcursor libxinerama libxrandr wayland-protocols --noconfirm  # Kitty Dependencies
 sudo pacman -S python-sphinx python-sphinx-furo python-sphinxext-opengraph python-sphinx-copybutton python-sphinx-inline-tabs --noconfirm  # Kitty Manual Dependencies
 # Audio and misc.
 sudo pacman -S zip unzip zsh neofetch brightnessctl zathura libreoffice alsa-utils pipewire-alsa pipewire-pulse pipewire-jack qjackctl pavucontrol qbittorrent vlc libinput pdflatex zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps xclip gtk2 gimp --noconfirm
@@ -188,6 +188,8 @@ chmod 600 ~/.config/kitty/current-theme.conf
 
 # For Milton, checkout Milton, download SDL-2.0.22, change nvim src/system_includes to have SDL2/SDL.h and the like, similartly with third_party/imgui/imgui_impl_sdl/cpp. Change 2.0.8 to 2.0.22 in CMakeLists.txt in the base directory, then build it.
 
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
 cd ~/Project
 if [[ ! -d "milton" ]]; then
   git clone https://github.com/serge-rgb/milton.git

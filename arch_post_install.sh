@@ -183,7 +183,7 @@ cp ~/Project/dotfiles/zsh/.zshrc ~/.zshrc
 # Copy kitty configurations
 mkdir ~/.config/kitty
 cp ~/Project/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-cp ~/Project/dotfiles/kitty/current-theme.conf ~/.config/kitty/curent-theme.conf
+cp ~/Project/dotfiles/kitty/current-theme.conf ~/.config/kitty/current-theme.conf
 chmod 600 ~/.config/kitty/kitty.conf
 chmod 600 ~/.config/kitty/current-theme.conf
 

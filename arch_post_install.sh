@@ -121,6 +121,7 @@ if [[ ! -d "tmux" ]]; then
   cd tmux
   sh autogen.sh
   ./configure && make
+  sudo make install
   cd ~/Project
 else
   echo "tmux already exists. Skipping build..."

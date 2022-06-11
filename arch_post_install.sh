@@ -35,6 +35,7 @@ sudo pacman -S zip unzip zsh neofetch brightnessctl zathura alsa-utils pipewire-
 sudo pacman -S virt-manager qemu vde2 dnsmasq bridge-utils openbsd-netcat --noconfirm
 sudo pacman -S ebtables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
+sudo pacman -S scrcpy --noconfirm
 sudo pacman -S zsh arandr --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S iptables --noconfirm

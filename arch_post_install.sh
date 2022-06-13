@@ -146,6 +146,10 @@ cp examples/chadrc.lua lua/custom/chadrc.lua
 echo "options hid_apple fnmode=0" | sudo tee -a /etc/modprobe.d/hid_apple.conf
 sudo mkinitcpio -p linux
 
+# Setup UMC202HD stuff
+echo "options snd_usb_audio implicit_fb=1" | sudo tee -a /etc/modprobe.d/snd_usb_audio.conf
+sudo mkinitcpio -p linux
+
 # Setup KVM stuff
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service

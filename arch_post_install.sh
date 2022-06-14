@@ -37,6 +37,8 @@ sudo pacman -S ebtables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
 sudo pacman -S scrcpy xf86-input-wacom --noconfirm
 sudo pacman -S usbutils kdiskmark --noconfirm
+sudo pacman -S rustup --noconfirm
+sudo pacman -S udisks2 --noconfirm
 sudo pacman -S zsh arandr --noconfirm
 sudo pacman -S crone --noconfirm
 sudo pacman -S libreoffice --noconfirm
@@ -178,6 +180,7 @@ sudo chmod 644 /etc/X11/xorg.conf.d/30-touchpad.conf
 
 # Logitech MX Master mouse configuration
 sudo cp ~/Project/dotfiles/etc/logid.cfg /etc/logid.cfg
+sudo systemctl enable --now logid
 
 cd ~
 if [[ ! -d ".config" ]]; then

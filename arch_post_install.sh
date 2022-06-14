@@ -37,7 +37,7 @@ sudo pacman -S ebtables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
 sudo pacman -S scrcpy xf86-input-wacom --noconfirm
 sudo pacman -S usbutils kdiskmark --noconfirm
-sudo pacman -S rustup --noconfirm
+sudo pacman -S rustup go --noconfirm
 sudo pacman -S udisks2 --noconfirm
 sudo pacman -S zsh arandr --noconfirm
 sudo pacman -S crone --noconfirm

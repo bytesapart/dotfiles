@@ -135,6 +135,7 @@ fi
 # Install nerd-fonts-fira-code
 i3-msg reload
 sudo pikaur -S nerd-fonts-fira-code --noconfirm
+sudo pikaur -S logiops # For Logitech MX Master 3 mouse
 
 # Install NvChad (TODO: Replace this with your own in the future!)
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
@@ -174,6 +175,10 @@ sudo chmod 644 /etc/udev/rules.d/backlight.rules
 # Touchpad configurations
 sudo cp ~/Project/dotfiles/etc/X11/xorg.conf.d/30-touchpad.conf /etc/X11/xorg.conf.d/30-touchpad.conf
 sudo chmod 644 /etc/X11/xorg.conf.d/30-touchpad.conf
+
+# Logitech MX Master mouse configuration
+sudo cp ~/Project/dotfiles/etc/logid.cfg /etc/logid.cfg
+
 cd ~
 if [[ ! -d ".config" ]]; then
   mkdir .config

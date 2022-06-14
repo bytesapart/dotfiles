@@ -107,6 +107,9 @@ else
   echo "neovim already exists. Skipping build..."
 fi
 
+# Install PyNVIM
+python -m pip install pynvim
+
 
 # kitty build
 if [[ ! -d "kitty" ]]; then

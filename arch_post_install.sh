@@ -40,7 +40,7 @@ sudo pacman -S usbutils kdiskmark --noconfirm
 sudo pacman -S rustup go --noconfirm
 sudo pacman -S udisks2 --noconfirm
 sudo pacman -S zsh arandr --noconfirm
-sudo pacman -S cronie --noconfirm
+sudo pacman -S cronie gparted swtpm --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S iptables --noconfirm
 

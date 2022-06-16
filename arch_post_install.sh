@@ -43,6 +43,7 @@ sudo pacman -S zsh arandr --noconfirm
 sudo pacman -S cronie gparted swtpm --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S iptables --noconfirm
+sudo pacman -S texlive --noconfim
 
 # Git configurations
 git config --global user.name "Osama Iqbal"

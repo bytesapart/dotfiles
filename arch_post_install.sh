@@ -30,7 +30,7 @@ sudo pacman -S cmake libtool make perl pkg-config ninja diffutils --noconfirm # 
 sudo pacman -S dbus fontconfig freetype2 hicolor-icon-theme lcms2 libglvnd librsync libx11 libxi libxkbcommon-x11 wayland imagemagick libcanberra python-pygments libxcursor libxinerama libxrandr wayland-protocols --noconfirm  # Kitty Dependencies
 sudo pacman -S python-sphinx python-sphinx-furo python-sphinxext-opengraph python-sphinx-copybutton python-sphinx-inline-tabs --noconfirm  # Kitty Manual Dependencies
 # Audio and misc.
-sudo pacman -S zip unzip zsh neofetch brightnessctl zathura alsa-utils pipewire-alsa pavucontrol qbittorrent vlc libinput zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps xclip gtk2 gimp --noconfirm
+sudo pacman -S zip unzip zsh neofetch brightnessctl zathura alsa-utils pipewire-alsa pipewire-jack pipewire-pulse qbittorrent vlc libinput zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps xclip gtk2 gimp --noconfirm
 # KVM/Virtual Manager
 sudo pacman -S virt-manager qemu vde2 dnsmasq bridge-utils openbsd-netcat --noconfirm
 sudo pacman -S ebtables libguestfs dmidecode --noconfirm
@@ -44,6 +44,10 @@ sudo pacman -S cronie gparted swtpm --noconfirm
 sudo pacman -S libreoffice --noconfirm
 sudo pacman -S iptables --noconfirm
 sudo pacman -S texlive --noconfim
+sudo pacman -S linux-headers --noconfirm
+sudo pacman -Sy v4l2loopback-dkms
+sudo pacman -Syu dkms base-devel --needed --noconfirm
+sudo pacman -S helvum qpwgraph --noconfirm
 
 # Git configurations
 git config --global user.name "Osama Iqbal"
@@ -142,6 +146,7 @@ fi
 i3-msg reload
 sudo pikaur -S nerd-fonts-fira-code --noconfirm
 sudo pikaur -S logiops # For Logitech MX Master 3 mouse
+sudo pikaur -S obs-studio-git # Install OBS Studio
 
 # Install NvChad (TODO: Replace this with your own in the future!)
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
@@ -165,6 +170,10 @@ sudo systemctl start libvirtd.service
 sudo usermod -a -G libvirt $(whoami)
 sudo systemctl restart libvirtd.service
 
+# Enable pipewire
+systemctl --user enable --now pipewire pipewire-pulse pipewire-media-session
+sudo systemctl enable --now pipewire pipewire-pulse pipewire-media-session
+
 cd ~
 cd Project
 if [[ ! -d "dotfiles" ]]; then
@@ -185,6 +194,10 @@ sudo chmod 644 /etc/X11/xorg.conf.d/30-touchpad.conf
 # Logitech MX Master mouse configuration
 sudo cp ~/Project/dotfiles/etc/logid.cfg /etc/logid.cfg
 sudo systemctl enable --now logid
+
+# GTK Configurations
+cp -R ~/Project/dotfiles/gtk/gtk-3.0 ~/.config
+cp ~/Project/dotfiles/gtk/.gtkrc-2.0 ~/
 
 cd ~
 if [[ ! -d ".config" ]]; then

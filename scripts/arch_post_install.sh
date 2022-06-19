@@ -49,6 +49,7 @@ sudo pacman -Sy v4l2loopback-dkms
 sudo pacman -Syu dkms base-devel --needed --noconfirm
 sudo pacman -S helvum qpwgraph --noconfirm
 sudo pacman -S i3lock xautolock --noconfirm
+sudo pacman -S wireplumber
 
 # Git configurations
 git config --global user.name "Osama Iqbal"
@@ -172,8 +173,8 @@ sudo usermod -a -G libvirt $(whoami)
 sudo systemctl restart libvirtd.service
 
 # Enable pipewire
-systemctl --user enable --now pipewire pipewire-pulse pipewire-media-session
-sudo systemctl enable --now pipewire pipewire-pulse pipewire-media-session
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+sudo systemctl enable --now pipewire pipewire-pulse wireplumber 
 
 cd ~
 cd Project

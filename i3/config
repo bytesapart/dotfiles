@@ -214,3 +214,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
 
+# lock
+bindsym Control+Mod1+l exec "i3lock -c 000000; systemctl suspend"
+

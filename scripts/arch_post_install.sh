@@ -211,6 +211,10 @@ fi
 cp ~/Project/dotfiles/i3/config .config/i3/config
 chmod 644 .config/i3/config
 
+# Copy zathura configurations
+mkdir .config/zathura
+cp ~/Project/dotfiles/zathura/.zathurarc .config/zathura/.zathurarc
+
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions

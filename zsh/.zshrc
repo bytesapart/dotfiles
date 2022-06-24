@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 
 # ===== User Defined Constructs Below =====
 alias vim=/usr/local/bin/nvim
+
+# ===== Disable NodeJS Warnings ====
+export NODE_NO_WARNINGS=1

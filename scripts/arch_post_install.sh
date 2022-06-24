@@ -261,4 +261,18 @@ else
   echo "resume exits. Skipping clone..."
 fi
 
+
+if [[ ! -d "leetcode-cli" ]]; then
+  git clone https://github.com/leetcode-toosl/leetcode-cli.git
+  cd leetcode-cli
+  ./bin/install
+  npm install underscore
+  nom audit fix --force
+
+else
+  echo "milton already exists. Skipping build..."
+fi
+
+
+
 chsh -s `which zsh`

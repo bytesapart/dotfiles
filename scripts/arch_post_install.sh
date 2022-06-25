@@ -287,4 +287,9 @@ else
   echo "LeetCodeLCD already exists. Skipping build..."
 fi
 
+# Install auto-cpufreq for battery life optimisations
+pikaur -S auto-cpufreq
+systemctl enable auto-cpufreq
+systemctl start auto-cpufreq
+
 chsh -s `which zsh`

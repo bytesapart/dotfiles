@@ -262,6 +262,7 @@ else
 fi
 
 
+# Clone leetcode-cli
 if [[ ! -d "leetcode-cli" ]]; then
   git clone https://github.com/leetcode-toosl/leetcode-cli.git
   cd leetcode-cli
@@ -270,9 +271,20 @@ if [[ ! -d "leetcode-cli" ]]; then
   nom audit fix --force
 
 else
-  echo "milton already exists. Skipping build..."
+  echo "leetcode-cli already exists. Skipping build..."
 fi
 
+# Clone LCSync and LeetCodeLCD
+if [[ ! -d "LCSync" ]]; then
+  git clone git@github.com:bytesapart/LCSync.git
+else
+  echo "LCSync already exists. Skipping build..."
+fi
 
+if [[ ! -d "LeetCodeLCD" ]]; then
+  git clone git@github.com:bytesapart/LeetCodeLCD.git
+else
+  echo "LeetCodeLCD already exists. Skipping build..."
+fi
 
 chsh -s `which zsh`

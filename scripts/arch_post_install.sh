@@ -37,7 +37,7 @@ sudo pacman -S ebtables libguestfs dmidecode --noconfirm
 sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
 sudo pacman -S scrcpy xf86-input-wacom --noconfirm
 sudo pacman -S usbutils kdiskmark --noconfirm
-sudo pacman -S rustup go obsidian --noconfirm
+sudo pacman -S rustup go obsidian gnome-keyring --noconfirm
 sudo pacman -S udisks2 --noconfirm
 sudo pacman -S zsh arandr bluez bluez-utils nodejs npm --noconfirm
 sudo pacman -S cronie gparted swtpm --noconfirm
@@ -149,6 +149,7 @@ i3-msg reload
 sudo pikaur -S nerd-fonts-fira-code --noconfirm
 sudo pikaur -S logiops # For Logitech MX Master 3 mouse
 sudo pikaur -S obs-studio-git # Install OBS Studio
+sudo pikaur -S protonvpn  # Install Protonvpn
 
 # Install NvChad (TODO: Replace this with your own in the future!)
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
@@ -200,6 +201,9 @@ sudo systemctl enable --now logid
 # GTK Configurations
 cp -R ~/Project/dotfiles/gtk/gtk-3.0 ~/.config
 cp ~/Project/dotfiles/gtk/.gtkrc-2.0 ~/
+
+# Bluetooth Configurations
+sudo cp ~/Project/dotfiles/etc/bluetooth/main.conf /etc/bluetooth/main.conf
 
 cd ~
 if [[ ! -d ".config" ]]; then

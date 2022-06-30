@@ -205,6 +205,9 @@ cp ~/Project/dotfiles/gtk/.gtkrc-2.0 ~/
 # Bluetooth Configurations
 sudo cp ~/Project/dotfiles/etc/bluetooth/main.conf /etc/bluetooth/main.conf
 
+# Tmux configurations
+cp ~/Project/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+
 cd ~
 if [[ ! -d ".config" ]]; then
   mkdir .config

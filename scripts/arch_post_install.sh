@@ -24,7 +24,7 @@
 
 
 # First step would be to pacman install git, llvm, clang and the like
-sudo pacman -S git llvm clang python python-pip firefox --noconfirm
+sudo pacman -S git llvm clang python python-pip firefox thunderbird --noconfirm
 sudo pacman -S base-devel --noconfirm
 sudo pacman -S cmake libtool make perl pkg-config ninja diffutils --noconfirm # Neovim dependencies
 sudo pacman -S dbus fontconfig freetype2 hicolor-icon-theme lcms2 libglvnd librsync libx11 libxi libxkbcommon-x11 wayland imagemagick libcanberra python-pygments libxcursor libxinerama libxrandr wayland-protocols --noconfirm  # Kitty Dependencies

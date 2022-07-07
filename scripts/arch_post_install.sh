@@ -38,7 +38,8 @@ sudo pacman -S ncurses libevent libutempter wget curl --noconfirm
 sudo pacman -S scrcpy xf86-input-wacom --noconfirm
 sudo pacman -S usbutils kdiskmark --noconfirm
 sudo pacman -S rustup go obsidian upower powertop --noconfirm
-sudo pacman -S udisks2 --noconfirm
+sudo pacman -S udisks2 wmctrl xdotool --noconfirm
+sudo pacman -S perl-anyevent-i3 perl-json-xd perl-json-xs --noconfirm
 sudo pacman -S zsh arandr bluez bluez-utils nodejs npm --noconfirm
 sudo pacman -S cronie gparted swtpm --noconfirm
 sudo pacman -S libreoffice --noconfirm
@@ -149,6 +150,7 @@ i3-msg reload
 sudo pikaur -S nerd-fonts-fira-code --noconfirm
 sudo pikaur -S logiops # For Logitech MX Master 3 mouse
 sudo pikaur -S obs-studio-git # Install OBS Studio
+sudo pikaur -S notion-app # Install Notion App
 
 # Install NvChad (TODO: Replace this with your own in the future!)
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim
@@ -216,6 +218,9 @@ else
 fi
 cp ~/Project/dotfiles/i3/config .config/i3/config
 chmod 644 .config/i3/config
+cp ~/Project/dotfiles/i3/restore_i3.sh .config/i3/restore_i3.sh
+chmod +x .config/i3/restore_i3.sh
+cp -R ~/Project/dotfiles/i3/layouts .config/i3/layouts
 
 # Copy zathura configurations
 mkdir .config/zathura

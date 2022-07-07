@@ -1,0 +1,25 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 860,
+       "width": 1320,
+       "x": 300,
+       "y": 110
+    },
+    "marks": [],
+    "name": "Palantir Technologies",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^notion\\-app$",
+       "instance": "^notion\\-app$",
+       "machine": "^archlinux$",
+       "title": "^Palantir\\ Technologies$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+

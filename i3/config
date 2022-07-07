@@ -217,3 +217,5 @@ bindsym $mod+Shift+period exec systemctl suspend
 # lock
 bindsym Control+Mod1+l exec "i3lock -c 000000; systemctl suspend"
 
+# Startup restoration of layout
+exec --no-startup-id ~/.config/i3/restore_i3.sh

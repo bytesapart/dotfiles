@@ -50,7 +50,7 @@ sudo pacman -Sy v4l2loopback-dkms
 sudo pacman -Syu dkms base-devel --needed --noconfirm
 sudo pacman -S helvum qpwgraph --noconfirm
 sudo pacman -S i3lock xautolock --noconfirm
-sudo pacman -S ansible terraform podman --noconfirm
+sudo pacman -S ansible docker --noconfirm
 sudo pacman -S wireplumber
 
 # Git configurations

@@ -16,7 +16,7 @@
        "class": "^notion\\-app$",
        "instance": "^notion\\-app$",
        "machine": "^archlinux$",
-       "title": "^Palantir\\ Technologies$",
+       //"title": "^Palantir\\ Technologies$",
        "window_role": "^browser\\-window$"
        }
     ],

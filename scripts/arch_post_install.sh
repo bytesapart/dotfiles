@@ -48,7 +48,7 @@ sudo pacman -S texlive --noconfim
 sudo pacman -S linux-headers --noconfirm
 sudo pacman -Sy v4l2loopback-dkms
 sudo pacman -Syu dkms base-devel --needed --noconfirm
-sudo pacman -S helvum qpwgraph --noconfirm
+sudo pacman -S helvum qpwgraph bitwarden --noconfirm
 sudo pacman -S i3lock xautolock --noconfirm
 sudo pacman -S ansible docker --noconfirm
 sudo pacman -S wireplumber
@@ -152,7 +152,7 @@ sudo pikaur -S nerd-fonts-fira-code --noconfirm
 sudo pikaur -S logiops # For Logitech MX Master 3 mouse
 sudo pikaur -S obs-studio-git # Install OBS Studio
 sudo pikaur -S notion-app # Install Notion App
-sudo pikaur -S protonmail-bridge # Install Protonmail Bridge
+# sudo pikaur -S protonmail-bridge # Install Protonmail Bridge --> Remove because requires premium
 
 # Install NvChad (TODO: Replace this with your own in the future!)
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim

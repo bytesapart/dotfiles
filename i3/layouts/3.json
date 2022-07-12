@@ -3,20 +3,20 @@
     "current_border_width": 2,
     "floating": "auto_off",
     "geometry": {
-       "height": 1058,
-       "width": 1916,
+       "height": 1057,
+       "width": 956,
        "x": 0,
        "y": 0
     },
     "marks": [],
-    "name": "Inbox - Mozilla Thunderbird",
+    "name": "Inbox - iqbal.osama@Icloud.com - Mozilla Thunderbird",
     "percent": 1,
     "swallows": [
        {
        "class": "^Thunderbird$",
        "instance": "^Mail$",
        "machine": "^archlinux$",
-       "title": "^Inbox\\ \\-\\ Mozilla\\ Thunderbird$",
+       "title": "^Inbox\\ \\-\\ iqbal\\.osama\\@Icloud\\.com\\ \\-\\ Mozilla\\ Thunderbird$",
        "window_role": "^3pane$"
        }
     ],

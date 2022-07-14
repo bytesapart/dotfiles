@@ -42,7 +42,7 @@ sudo pacman -S udisks2 wmctrl xdotool --noconfirm
 sudo pacman -S perl-anyevent-i3 perl-json-xd perl-json-xs --noconfirm
 sudo pacman -S zsh arandr bluez bluez-utils nodejs npm --noconfirm
 sudo pacman -S cronie gparted swtpm --noconfirm
-sudo pacman -S libreoffice --noconfirm
+sudo pacman -S libreoffice discord --noconfirm
 sudo pacman -S iptables --noconfirm
 sudo pacman -S texlive --noconfim
 sudo pacman -S linux-headers --noconfirm
@@ -51,7 +51,7 @@ sudo pacman -Syu dkms base-devel --needed --noconfirm
 sudo pacman -S helvum qpwgraph bitwarden --noconfirm
 sudo pacman -S i3lock xautolock --noconfirm
 sudo pacman -S ansible docker --noconfirm
-sudo pacman -S steam discord --noconfirm
+sudo pacman -S steam
 sudo pacman -S wireplumber
 
 # Git configurations

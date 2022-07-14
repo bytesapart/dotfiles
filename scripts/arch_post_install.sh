@@ -51,6 +51,7 @@ sudo pacman -Syu dkms base-devel --needed --noconfirm
 sudo pacman -S helvum qpwgraph bitwarden --noconfirm
 sudo pacman -S i3lock xautolock --noconfirm
 sudo pacman -S ansible docker --noconfirm
+sudo pacman -S steam discord --noconfirm
 sudo pacman -S wireplumber
 
 # Git configurations

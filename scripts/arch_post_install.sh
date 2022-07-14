@@ -152,6 +152,7 @@ sudo pikaur -S nerd-fonts-fira-code --noconfirm
 sudo pikaur -S logiops # For Logitech MX Master 3 mouse
 sudo pikaur -S obs-studio-git # Install OBS Studio
 sudo pikaur -S notion-app # Install Notion App
+sudo pikaur -S calibre # Install calibre
 # sudo pikaur -S protonmail-bridge # Install Protonmail Bridge --> Remove because requires premium
 
 # Install NvChad (TODO: Replace this with your own in the future!)

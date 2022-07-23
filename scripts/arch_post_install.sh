@@ -42,7 +42,7 @@ sudo pacman -S udisks2 wmctrl xdotool --noconfirm
 sudo pacman -S perl-anyevent-i3 perl-json-xd perl-json-xs --noconfirm
 sudo pacman -S zsh arandr bluez bluez-utils nodejs npm --noconfirm
 sudo pacman -S cronie gparted swtpm --noconfirm
-sudo pacman -S libreoffice discord flameshot --noconfirm
+sudo pacman -S libreoffice discord flameshot qutebrowser --noconfirm
 sudo pacman -S iptables --noconfirm
 sudo pacman -S texlive --noconfim
 sudo pacman -S linux-headers --noconfirm

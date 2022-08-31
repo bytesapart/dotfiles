@@ -102,7 +102,7 @@ if [[ ! -d "neovim" ]]; then
   cd neovim
   mkdir .deps
   cd .deps
-  cmake -G Ninja ../third-party/
+  cmake -G Ninja ../cmake.deps/
   ninja
   cd ..
   mkdir build
